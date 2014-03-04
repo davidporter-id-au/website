@@ -1,17 +1,34 @@
-<div ng-include="'partials/navbar'"></div>
+<div ng-include="'/partials/navbar'"></div>
 
-<form role="form">
-	<div class="form-group">
-		<label for="exampleInputEmail1">Email address</label>
-		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<h3>Contact info</h3>
+			<hr>
+			<address>
+				<strong>Phone:</strong> 0466 238 748 
+			</address>
+		</div>
+
+		<div class="col-sm-8 contact-form">
+			<form id="contact" method="post" class="form" role="form">
+				<div class="row">
+					<div class="col-xs-6 col-md-6 form-group">
+						<input class="form-control" id="name" name="name" placeholder="Name" type="text" required autofocus />
+					</div>
+					<div class="col-xs-6 col-md-6 form-group">
+						<input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+					</div>
+				</div>
+				<textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+				<br />
+				<div class="row">
+					<div class="col-xs-12 col-md-12 form-group">
+						<button class="btn btn-primary pull-right" type="submit">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="exampleInputEmail1">Phone</label>
-		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-	</div>
-	<div class="form-group">
-		<label for="exampleInputEmail1">Email address</label>
-		<textarea id="" name="message" class="form-control" ></textarea>
-	</div>
-	<a ng-click="submit()" class="btn btn-primary">Submit</a>
-</form>
+</div>
