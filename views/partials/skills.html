@@ -1,0 +1,39 @@
+<style>
+	ul.nav li {
+		margin-left:5px;
+	}
+</style>
+<div ng-include="'/partials/navbar'"></div>
+<div data-spy="scroll" data-target="#affix-nav" class="container"><!--{{{-->
+	<div class="row">
+		<div class="col-md-3">
+			<!--{{{ Menu-->
+			<nav id="affix-nav" class="sidebar col-md-4">
+				<ul class="nav sidenav affix" data-spy="affix" data-offset-top="10">
+					<li><a ng-click="linkTo('languages')" href="/skills#Languages">Languages</a>
+						<ul class="nav">
+							<li><a href="/skills" ng-click="linkTo('js')">JS/Angular/Node</a></li>
+							<li><a href="/skills" ng-click="linkTo('php')">PHP</a></li>
+							<li><a href="/skills" ng-click="linkTo('linux')">linux</a></li>
+						</ul>
+					</li>
+					<li><a href="/skills#xp">Experience</a></li>
+				</ul>
+			</nav>
+			<!--}}}-->
+		</div>
+		<div class="col-sm-9 col-md-9" id="skillsContent">
+			<div id="languages">
+				<div id="js" ng-include="'/partials/skills/ca'" autoscroll></div>
+				<h2>I work with... </h2>
+				<div id="js" ng-include="'/partials/skills/js'" autoscroll></div>
+				<div id="php" ng-include="'/partials/skills/php'" autoscroll></div>
+				<div id="linux" ng-include="'/partials/skills/linux'"></div>
+				<div id="db" ng-include="'/partials/skills/db'"></div>
+			</div>
+			<div id="xp" ng-include="'/partials/xp'">
+				<h1>Experience</h1>
+			</div>
+		</div>
+	</div>
+</div><!--}}}-->

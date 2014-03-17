@@ -1,0 +1,13 @@
+<style>
+	.darkCell {
+		background:#CCC;
+	}
+</style>
+<div ng-controller="caCtrl" id="ca">
+	<a class="btn" ng-click="iterate()">Calculate</a>
+	<table>
+		<tr ng-repeat="r in ca">
+			<td ng-repeat="c in r" ng-class="{darkCell: c.value}">.</td>
+		</tr>
+	</table>
+</div>
