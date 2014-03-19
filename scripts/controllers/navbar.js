@@ -19,6 +19,10 @@ angular.module('davidporteridauApp')
 	'title': 'Github',
 	'link': 'https://github.com/DesertLynx'
 	},
+	{
+	'title': 'Coderwall',
+	'link': 'https://coderwall.com/desertlynx'
+	},
   ];
     
     $scope.isActive = function(route) {
