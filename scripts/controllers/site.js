@@ -3,10 +3,9 @@
 angular.module('davidporteridauApp')
   .controller('ContactCtrl', function ($scope, $http) {
 
-	  $scope.submit = function() {
-		$scope.response = 'Thank you for sending me that message, I\ll get back to you ASAP.'
-	  	
-	  }
+	$scope.submit = function() {
+		$scope.response = 'Thank you for sending me that message, I\'ll get back to you ASAP.';
+	};
   });
 
 var app = angular.module('davidporteridauApp');
@@ -14,22 +13,31 @@ var app = angular.module('davidporteridauApp');
 app.controller('SkillsCtrl', function ($scope, $http, $location, $anchorScroll) {
 
 	$scope.linkTo = function(id) {
-		console.log('jumping to', id);
 		$location.hash(id); 
 		$anchorScroll();
 	};
 	
 	$scope.submit = function() {
-		$scope.response = 'Thank you for sending me that message, I\ll get back to you ASAP.'
-	}
+		$scope.response = 'Thank you for sending me that message, I\'ll get back to you ASAP.';
+	};
   });
 
-app.controller('caCtrl', function($scope){
+app.controller('CaCtrl', function($scope){
+
+	//Change the existing rules based upon the given key (eg '111').
+	$scope.toggleRule = function(key) {
+		setup();
+		rules[key] = (rules[key]) == 1 ? 0 : 1;
+		$scope.iterate();
+	}
+
+	$scope.rows = 50;
+	$scope.columns = 100;
 
 	var setup = function() {
 		var arr = [];
-		var rows = 20;
-		var cols = 100;
+		var rows = $scope.rows;
+		var cols = $scope.columns;
 		//for each row
 		for(var i = 0; i < rows; i++) {
 			arr[i] = [];
@@ -57,18 +65,20 @@ app.controller('caCtrl', function($scope){
 		}
 	};
 
+	//The ruleset
 	var rules = {
-			'111': 0,
-			'110': 0,
-			'101': 0,
-			'100': 1,
-			'011': 1,
-			'010': 1,
-			'001': 1,
-			'000': 0,
+			'111': false,
+			'110': false,
+			'101': false,
+			'100': true,
+			'011': true,
+			'010': true,
+			'001': true,
+			'000': false,
 		};
+
+	$scope.rules = rules;
 	
-	$scope.ca = setup(); 
 
 	var iterate = function(arr) {
 		//for each row
@@ -76,13 +86,14 @@ app.controller('caCtrl', function($scope){
 			//for each column
 			for(var j = 0; j < arr[i].length; j++) {
 				var result = rules["" + calc(arr, i, j)];
-				if(result) 
+				if(result != undefined) 
 					arr[i][j].value = !!result;
 			}
 		}
 	}
 
 	$scope.iterate = function() {
+		$scope.ca = setup(); 
 		iterate($scope.ca);
 	};
 

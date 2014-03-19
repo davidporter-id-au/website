@@ -20,6 +20,10 @@ angular.module('davidporteridauApp', [
 		templateUrl: 'partials/skills',
 	controller: 'SkillsCtrl'
 	})
+	.when('/ca', {
+		templateUrl: 'partials/ca-only',
+	controller: 'CaCtrl'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
